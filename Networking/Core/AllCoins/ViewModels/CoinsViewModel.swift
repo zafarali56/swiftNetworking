@@ -12,15 +12,17 @@ class CoinsViewModel: ObservableObject {
     @Published var price = ""
     
     init() {
-        fetchPrice(coin: "ethereum" , currency: "eur")
+        fetchPrice(coin: "bitcoin" , currency: "pkr")
     }
     
     func fetchPrice(coin: String, currency: String)
     {
+        print(Thread.current)
         let urlString = "https://api.coingecko.com/api/v3/simple/price?ids=\(coin)&vs_currencies=\(currency)"
         guard let url = URL(string: urlString) else {return}
         print("Fetching price...")
         URLSession.shared.dataTask(with: url) { data, response, error in
+            print(Thread.current)
             print("Did recieve data \(data)")
             guard let data = data else {return}
             
@@ -29,10 +31,11 @@ class CoinsViewModel: ObservableObject {
             
             guard let value = jsonObject[coin] as? [String: Double] else {
                 print("Failed to parse the value" )
-                    return
+                return
             }
             guard let price = value [currency] else {return}
             DispatchQueue.main.async{
+                print(Thread.current)
                 self.coin = coin.capitalized
                 self.price = "\(price) \(currency)"
             }
