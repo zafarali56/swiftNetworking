@@ -10,36 +10,18 @@ import Foundation
 class CoinsViewModel: ObservableObject {
     @Published var coin = ""
     @Published var price = ""
-    
+    @Published var errorMessage: String?
+     
+    private let service = CoinDataClass()
     init() {
-        fetchPrice(coin: "bitcoin" , currency: "pkr")
-    }
+            fetchPrice(price: "pkr", coin: "bitcoin" )    }
     
-    func fetchPrice(coin: String, currency: String)
-    {
-        print(Thread.current)
-        let urlString = "https://api.coingecko.com/api/v3/simple/price?ids=\(coin)&vs_currencies=\(currency)"
-        guard let url = URL(string: urlString) else {return}
-        print("Fetching price...")
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            print(Thread.current)
-            print("Did recieve data \(data)")
-            guard let data = data else {return}
-            
-            guard let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {return}
-            print(jsonObject)
-            
-            guard let value = jsonObject[coin] as? [String: Double] else {
-                print("Failed to parse the value" )
-                return
+    func fetchPrice(price: String, coin: String){
+        service.fetchPrice(coin: coin, currency: price ){ priceFromService, coinFromservice in
+            DispatchQueue.main.async {
+                self.coin = coin
+                self.price = ("\(priceFromService) Currency: \(price)")
             }
-            guard let price = value [currency] else {return}
-            DispatchQueue.main.async{
-                print(Thread.current)
-                self.coin = coin.capitalized
-                self.price = "\(price) \(currency)"
-            }
-        }.resume()
-        print("Did reach end of function...")
+        }
     }
 }

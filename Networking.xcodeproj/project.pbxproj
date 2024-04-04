@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0073A72BBF1AB10046319D /* CoinDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0073A62BBF1AB10046319D /* CoinDataClass.swift */; };
 		9EBED1922BB71E6900FA7804 /* NetworkingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBED1912BB71E6900FA7804 /* NetworkingApp.swift */; };
 		9EBED1942BB71E6900FA7804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBED1932BB71E6900FA7804 /* ContentView.swift */; };
 		9EBED1962BB71E6C00FA7804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EBED1952BB71E6C00FA7804 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E0073A62BBF1AB10046319D /* CoinDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataClass.swift; sourceTree = "<group>"; };
 		9EBED18E2BB71E6900FA7804 /* Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EBED1912BB71E6900FA7804 /* NetworkingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingApp.swift; sourceTree = "<group>"; };
 		9EBED1932BB71E6900FA7804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E0073A52BBF1A610046319D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9E0073A62BBF1AB10046319D /* CoinDataClass.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		9EBED1852BB71E6900FA7804 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		9EBED1A12BB71FDC00FA7804 /* AllCoins */ = {
 			isa = PBXGroup;
 			children = (
+				9E0073A52BBF1A610046319D /* Service */,
 				9EBED1A42BB7204200FA7804 /* ViewModels */,
 				9EBED1A32BB7203900FA7804 /* Views */,
 				9EBED1A22BB7203100FA7804 /* Models */,
@@ -191,6 +202,7 @@
 				9EBED1942BB71E6900FA7804 /* ContentView.swift in Sources */,
 				9EBED1A62BB723D700FA7804 /* CoinsViewModel.swift in Sources */,
 				9EBED1922BB71E6900FA7804 /* NetworkingApp.swift in Sources */,
+				9E0073A72BBF1AB10046319D /* CoinDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
